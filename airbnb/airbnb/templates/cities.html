@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'libs/leaflet/leaflet.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="row-fluid vertical-center">
+  <div class="span12">
+    <div class="row-fluid">
+      <h2 class="text-center">Airbnb Host & Guest Assistant</h2>
+    </div>
+    <div style="margin-top: 30px" class="row-fluid">
+      <div class="span5">
+        <div class="row-fluid">
+          <div class="span6">
+            <label for="city_select">City</label>
+          </div>
+          <div class="span6">
+            <select id="city_select" name="city"></select>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span6">
+            <label for="neighborhood_select">Neighborhood</label>
+          </div>
+          <div class="span6">
+            <select id="neighborhood_select" name="neighborhood"></select>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span6">
+            <label for="bedrooms_select">Bedrooms</label>
+          </div>
+          <div class="span6">
+            <select id="bedrooms_select" name="bedrooms"></select>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span6">
+            <label for="bathrooms_select">Bathrooms</label>
+          </div>
+          <div class="span6">
+            <select id="bathrooms_select" name="bathrooms"></select>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span6">
+            <label for="room_type_select">Room Type</label>
+          </div>
+          <div class="span6">
+            <select id="room_type_select" name="room_type"></select>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px" class="row-fluid">
+          <div class="span8">
+            <strong class="lead">Price Per Night:</strong>
+          </div>
+          <div id="price" class="span4 text-right lead">
+          </div>
+        </div>
+
+        <div class="row-fluid text-center">
+          <h3>Underpriced Properties</h3>
+        </div>
+        <div style="height: 200px" class="row-fluid">
+          <div class="offset2 span8">
+            <h2 id="underpriced-fetching" class="text-center">Fetching...</h2>
+
+            <table id="underpriced-table" class="hidden table table-hover">
+              <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    <p class="text-right">
+                      Price
+                    </p>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="span7">
+        <div class="span12" style="height: 650px" id="mapid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'libs/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'js/cities.js' %}"></script>
+{% endblock %}
